@@ -1,0 +1,4 @@
+socialapp-env/
+*.py[cod]
+__pycache__/
+*.sqlite3
