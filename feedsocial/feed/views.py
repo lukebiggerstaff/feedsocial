@@ -6,8 +6,8 @@ from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.utils.datastructures import MultiValueDictKeyError
 from accounts.models import FeedSocialUser
-from .models import UserContent
-from .forms import UserContentForm
+from .models import UserContent, ContentComment
+from .forms import UserContentForm, CommentForm
 
 class FeedView(ListView):
     template_name = 'feed.html'
@@ -42,4 +42,22 @@ class ContentCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
+        return super().form_valid(form)
+
+
+class CommentCreateView(CreateView):
+    model = ContentComment
+    form_class = CommentForm
+    template_name = 'commentcreate.html'
+    success_url = reverse_lazy('feed')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs['pk']
+        obj = get_object_or_404(UserContent, pk=pk)
+        context['object'] = obj
+        return context
+
+    def form_valid(self, form):
+        form.instance.comment_creator = self.request.user
         return super().form_valid(form)
