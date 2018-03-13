@@ -6,7 +6,7 @@
      <h4> {{ content.content }}</h4>
      <div class="comment">
        <small><a href=" {% url 'pfeed' user=content.creator %}" target="_blank">{{ content.creator }}</a></small>
-       <em>{{ content.comments }}</em><i class="fa fa-comment"></i>
+       <em>{{ content.comments }}</em><a href=" {% url 'comment-create' pk=content.pk %}"><i class="fa fa-comment"></i></a>
      </div>
    </li> 
   {% endfor %}
