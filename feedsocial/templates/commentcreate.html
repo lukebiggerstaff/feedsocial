@@ -3,23 +3,36 @@
 {% block body %}
 <div class="container">
 <div class="row">
-<div class="col-6 m-auto">
-    <p>
+<div class="col-8 m-auto">
+  <div class="content-detail">
+    <h2 class="content-detail--header">
       {{ object.content }} 
-    </p>
+    </h2>
     <p>
-      {{ object.creator }} 
+      <a href=" {% url 'pfeed' user=object.creator %}" target="_blank">{{ object.creator }}</a>
     </p>
+  </div>
 
-    {% for comment in object.contentcomment_set.all %}
-    <h2>message here {{ comment.message }}</h2>
-    {% endfor %}
+  <div class="comment-block">
+  {% for comment in object.contentcomment_set.all %}
+    <p>
+      <a href="{% url 'pfeed' user=comment.comment_creator %}">
+        {{ comment.comment_creator }}: 
+      </a>
+      {{ comment.message }}
+    </p>
+    <hr>
+  {% endfor %}
+  </div>
 
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }} 
-      <input type="submit" class="btn feed-button btn-block "/>
-    </form>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.message.error }} 
+      {{ form.message}} 
+    </div>
+    <input type="submit" class="btn feed-button btn-block "/>
+  </form>
 </div>
 </div>
 </div>
