@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+<div class="col-6 m-auto">
+    <p>
+      {{ object.content }} 
+    </p>
+    <p>
+      {{ object.creator }} 
+    </p>
+
+    {% for comment in obj.comment_set.all %}
+    <p>{{ comment.message }}</p> 
+    {% endfor %}
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }} 
+      <input type="submit" class="btn feed-button btn-block "/>
+    </form>
+</div>
+</div>
+</div>
+{% endblock body %}
