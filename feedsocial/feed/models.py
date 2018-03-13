@@ -14,7 +14,7 @@ class ContentComment(models.Model):
         'UserContent',
         on_delete = models.CASCADE,
     )
-    creator = models.ForeignKey(
+    comment_creator = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete = models.CASCADE,
     )
