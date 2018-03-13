@@ -1,0 +1,90 @@
+.nav {
+  min-height: 125px;
+  border: 5px groove aquamarine;
+  background-color: #212;
+  color: white;
+  display: flex; }
+  .nav a {
+    color: aquamarine; }
+  .nav form {
+    margin: 0 auto; }
+  .nav .btn {
+    color: white;
+    background-color: #19ffb2; }
+  .nav-header {
+    font-size: 1.5em;
+    display: flex;
+    color: white;
+    text-decoration: underline;
+    align-items: center;
+    padding: 20px 30px;
+    font-family: 'monospace';
+    letter-spacing: .02em; }
+    .nav-header i {
+      color: #00ffa9;
+      padding: 0 10px;
+      position: relative;
+      top: 1px;
+      left: -15px; }
+  .nav-ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center; }
+    .nav-ul a {
+      text-decoration: none;
+      color: white; }
+    .nav-ul--item {
+      font-family: 'monospace';
+      padding: 20px 20px;
+      margin-right: 5px;
+      display: flex;
+      align-items: center; }
+      .nav-ul--item:hover {
+        background: #1a1a1a;
+        cursor: pointer;
+        color: aquamarine; }
+
+.feed-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .feed-grid--item {
+    display: flex;
+    flex-flow: column;
+    border-top: 40px solid #19ffb2;
+    border-bottom: 1px solid black;
+    width: 300px;
+    margin: 10px;
+    border-radius: 10%; }
+    .feed-grid--item h4 {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color: #212;
+      padding: 30px 20px; }
+    .feed-grid--item .comment {
+      display: flex; }
+    .feed-grid--item small {
+      padding: 20px;
+      margin-right: auto; }
+      .feed-grid--item small a {
+        color: #00e598;
+        text-decoration: none; }
+    .feed-grid--item .fa-comment {
+      padding: 20px;
+      align-self: center; }
+
+.feed-wrapper {
+  margin-top: 130px; }
+
+.feed-button {
+  background-color: #19ffb2;
+  cursor: pointer; }

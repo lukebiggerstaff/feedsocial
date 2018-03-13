@@ -1,0 +1,62 @@
+.nav {
+  min-height: 125px;
+  border: 5px groove aquamarine;
+  a {
+    color: aquamarine;
+  }
+  form {
+    margin: 0 auto;
+  }
+  .btn {
+    color: white;
+    background-color: darken(aquamarine, 20%);
+  }
+   background-color: #212;
+   color: white;
+   display: flex;
+   &-header {
+     font-size: 1.5em;
+     display:flex;
+     color: white;
+     text-decoration: underline;
+     align-items:center;
+     padding: 20px 30px;
+     font-family: 'monospace';
+     letter-spacing: .02em;
+     & i {
+       color: darken(aquamarine, 25%);
+       padding: 0 10px;
+       position: relative;
+       top:1px;
+       left:-15px;
+      }
+    }
+   &-ul {
+     display: flex;
+     flex-direction: row;
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     align-items: center;
+     a {
+       text-decoration: none;
+       color: white;
+    }
+     &--item {
+       font-family: 'monospace';
+       padding: 20px 20px;
+       margin-right: 5px;
+       display:flex;
+       align-items:center;
+       &:hover {
+         background: darken(#333, 10%);
+         cursor: pointer;
+         color:aquamarine;
+      }
+      
+    }
+    
+  }
+ 
+}
+

@@ -1,0 +1,41 @@
+.feed-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &--item {
+    display: flex;
+    flex-flow: column;
+    border-top: 40px solid darken(aquamarine, 20%);
+    border-bottom: 1px solid black;
+    width: 300px;
+    margin: 10px;
+    border-radius: 10%;
+    h4 {
+      flex: 1 1 auto;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color: #212;
+      padding: 30px 20px;
+    }
+    .comment {
+      display: flex;
+    }
+    small {
+      padding: 20px;
+      margin-right: auto;
+      a {
+        color: darken(aquamarine, 30%);
+        text-decoration: none;
+      }
+    }
+    .fa-comment {
+      padding: 20px;
+      align-self: center;
+    }
+  }
+}
