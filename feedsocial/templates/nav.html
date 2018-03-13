@@ -1,0 +1,20 @@
+<nav class="nav fixed-top">
+ <a href="{% url 'feed' %}"><div class="nav-header">FeedSocial<i class="fa fa-comments"></i></a></div>
+  <form class="form-inline" action="{% url 'feed'%}" method="get" accept-charset="utf-8">
+    <div class="input-group">
+      <input class="form-control" name="query" type="text" /> 
+      <button class="input-group-addon btn btn-warning"><i class="fa fa-search"></i></button>
+    </div>
+  </form>
+
+  <ul class="nav-ul">
+    {% if user.is_authenticated %}
+    <a href="{% url 'pfeed' user=user.username %}"><li class="nav-ul--item">{{ user|capfirst }}</li></a> 
+    <a href="{% url 'create' %}"><li class="nav-ul--item">Post<li></a>
+    <a href="{% url 'logout' %}"><li class="nav-ul--item">Sign out<li></a>
+    {% else %}
+    <a href="{% url 'signup' %}"><li class="nav-ul--item">Sign up<li></a>
+    <a href="{% url 'login' %}"><li class="nav-ul--item">Log in<li></a>
+    {% endif %}
+  </ul> 
+</nav>

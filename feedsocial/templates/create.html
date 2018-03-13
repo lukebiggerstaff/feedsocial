@@ -1,0 +1,17 @@
+{% extends "./base.html" %}
+{% block body %}
+  <div class="container">
+    <div class="row">
+    <div class="col-8">
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-group">
+          {{ form.content.errors }}
+          {{ form.content }}
+        </div>
+        <input class="btn btn-block feed-button"type="submit" />
+      </form>
+    </div>
+    </div>
+  </div>
+{% endblock body %}

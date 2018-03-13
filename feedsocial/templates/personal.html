@@ -1,0 +1,11 @@
+{% extends "./base.html" %}
+{% block body %}
+{% if user.is_authenticated %}
+<h2>Welcome {{ user }}</h2>
+{% for content in object_list %}
+<p>{{ content.content }}</p>
+{% endfor %}
+{% else %}
+  <h2><a href=" {% url 'login' %}" >Sign In</a> to view your feed</h2>
+{% endif %}
+{% endblock body %}
