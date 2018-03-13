@@ -59,5 +59,7 @@ class CommentCreateView(CreateView):
         return context
 
     def form_valid(self, form):
+        content_parent = get_object_or_404(UserContent, pk=self.kwargs['pk'])
         form.instance.comment_creator = self.request.user
+        form.instance.content_parent = content_parent
         return super().form_valid(form)
