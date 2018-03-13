@@ -11,8 +11,8 @@
       {{ object.creator }} 
     </p>
 
-    {% for comment in obj.comment_set.all %}
-    <p>{{ comment.message }}</p> 
+    {% for comment in object.contentcomment_set.all %}
+    <h2>message here {{ comment.message }}</h2>
     {% endfor %}
 
     <form method="post">
