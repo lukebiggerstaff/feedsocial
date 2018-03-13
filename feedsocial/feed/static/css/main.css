@@ -47,6 +47,43 @@
         cursor: pointer;
         color: aquamarine; }
 
+.content-detail {
+  display: flex;
+  flex-flow: column;
+  border-top: 40px solid #19ffb2;
+  border-radius: 10%; }
+  .content-detail--header {
+    background-color: black;
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0; }
+  .content-detail p {
+    padding: 20px 10px;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0; }
+    .content-detail p a {
+      text-decoration: none;
+      color: #19ffb2; }
+
+.comment-block {
+  border-right: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  margin-bottom: 10px; }
+  .comment-block hr {
+    margin: 0; }
+  .comment-block p {
+    padding: 20px;
+    margin: 0; }
+  .comment-block a {
+    color: #19ffb2;
+    text-decoration: none; }
+
 .feed-grid {
   list-style: none;
   padding: 0;
@@ -72,6 +109,8 @@
       padding: 30px 20px; }
     .feed-grid--item .comment {
       display: flex; }
+      .feed-grid--item .comment em {
+        align-self: center; }
     .feed-grid--item small {
       padding: 20px;
       margin-right: auto; }
@@ -79,7 +118,7 @@
         color: #00e598;
         text-decoration: none; }
     .feed-grid--item .fa-comment {
-      padding: 20px;
+      padding: 20px 20px 20px 5px;
       align-self: center; }
 
 .feed-wrapper {

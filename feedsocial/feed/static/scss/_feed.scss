@@ -24,6 +24,9 @@
     }
     .comment {
       display: flex;
+      em {
+        align-self: center;
+      }
     }
     small {
       padding: 20px;
@@ -34,7 +37,7 @@
       }
     }
     .fa-comment {
-      padding: 20px;
+      padding: 20px 20px 20px 5px;
       align-self: center;
     }
   }
