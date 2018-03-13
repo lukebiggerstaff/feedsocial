@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import UserContent
+from .models import UserContent, ContentComment
 
 class UserContentForm(ModelForm):
     class Meta:
@@ -11,4 +11,16 @@ class UserContentForm(ModelForm):
                 'class' : 'form-control text-muted',
                 'placeholder' : 'Add your message here',
             })
+        }
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = ContentComment
+        fields = ['message']
+        widgets = {
+            'message' : forms.TextInput(attrs={
+                'class' : 'form-control text-muted',
+                'placeholder' : 'what do you want to say?',
+            }),
         }
