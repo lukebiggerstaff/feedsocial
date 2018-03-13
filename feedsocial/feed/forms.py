@@ -9,5 +9,6 @@ class UserContentForm(ModelForm):
         widgets = {
             'content' : forms.Textarea(attrs={
                 'class' : 'form-control text-muted',
+                'placeholder' : 'Add your message here',
             })
         }
