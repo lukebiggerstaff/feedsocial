@@ -21,8 +21,9 @@ class FeedView(ListView):
             return qs
         else:
             if query:
-                qs = UserContent.objects.filter(content__icontains=query)
-                return qs
+                qs1 = UserContent.objects.filter(content__icontains=query)
+                qs2 = UserContent.objects.filter(creator__username__icontains=query)
+                return qs1 | qs2
             qs = UserContent.objects.all()
             return qs
 
