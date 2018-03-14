@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import FormMixin
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.datastructures import MultiValueDictKeyError
 from accounts.models import FeedSocialUser
 from .models import UserContent, ContentComment
@@ -18,14 +18,14 @@ class FeedView(ListView):
             query = self.request.GET['query']
         except MultiValueDictKeyError:
             qs = UserContent.objects.all()
-            return qs
+            return qs[:101]
         else:
             if query:
                 qs1 = UserContent.objects.filter(content__icontains=query)
                 qs2 = UserContent.objects.filter(creator__username__icontains=query)
-                return qs1 | qs2
+                return (qs1 | qs2)[:101]
             qs = UserContent.objects.all()
-            return qs
+            return qs[:101]
 
 class PFeedView(ListView):
     template_name = 'feed.html'
@@ -46,7 +46,7 @@ class ContentCreateView(CreateView):
         return super().form_valid(form)
 
 
-class CommentCreateView(CreateView):
+class CommentCreateView(LoginRequiredMixin, CreateView):
     model = ContentComment
     form_class = CommentForm
     template_name = 'commentcreate.html'
