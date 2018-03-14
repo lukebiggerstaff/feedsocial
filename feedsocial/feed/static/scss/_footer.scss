@@ -1,0 +1,14 @@
+footer{
+  display: flex;
+  justify-content: flex-end;
+  height: 140px;
+  border-top: 5px groove aquamarine;
+  background-color: #212;
+  color: aquamarine;
+  display: flex;
+  font-family: 'monospace';
+  & h5 {
+    align-self: flex-end;
+    padding: 20px;
+  }
+}
