@@ -10,10 +10,11 @@
     <title>FeedSocial</title>
   </head>
   <body>
-    {% include './nav.html' %}
-    <div class="feed-wrapper">
+    <div class="site-wrapper">
+      {% include './nav.html' %}
       {% block body %}
       {% endblock body %}
+      {% include './footer.html' %}
     </div>
   </body>
 </html>
