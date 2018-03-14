@@ -1,34 +1,25 @@
 {% extends "base.html" %}
-
 {% block body %}
-
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
-
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag  }}</td>
-        <td>{{ form.username  }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag  }}</td>
-        <td>{{ form.password  }}</td>
-      </tr>
-    </table>
-
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next  }}" />
-  </form>
+  <div id="signup-form" class="feed-grid">
+    <form action="{% url 'login' %}" method="post">
+      <h3>Sign in to add to the Feed</h3>
+      {% if form.errors %}
+        <small>Your username and password didn't match. Please try again.</small>
+      {% endif %}
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username.errors }}
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password.errors }}
+        {{ form.password }}
+      </div>
+      <input value="Login" type="submit" class="btn btn-block feed-button" />
+      <input type="hidden" name="next" value="{{ next  }}" />
+      <small>Not registered? Sign up <a href=" {% url 'signup' %}">here.</a></small>
+    </form>
+  </div>
 {% endblock %}
