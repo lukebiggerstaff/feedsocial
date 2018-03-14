@@ -2,12 +2,34 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+Environment = {
+    'DJANGO_DEBUG' : bool(int(os.environ.get("DJANGO_DEBUG"))),
+    'DJANGO_SECRET' : os.environ.get("DJANGO_SECRET"),
+    'DJANGO_DB_NAME' : os.environ.get("DJANGO_DB_NAME"),
+    'DJANGO_DB_USER' : os.environ.get("DJANGO_DB_USER"),
+    'DJANGO_DB_PASSWORD' : os.environ.get("DJANGO_DB_PASSWORD"),
+    'DJANGO_DB_HOST' : os.environ.get("DJANGO_DB_HOST"),
+    'DJANGO_DB_PORT' : os.environ.get("DJANGO_DB_PORT"),
+    'DJANGO_SITENAME' : os.environ.get("DJANGO_SITENAME"),
+}
 
-SECRET_KEY = '&*yda8b(3g+f0aq5z6&ga29++f@#@3e^j_e8l(o0=farp=m7+w'
 
-DEBUG = True
+DEBUG = Environment["DJANGO_DEBUG"]
 
-ALLOWED_HOSTS = []
+SECRET_KEY = Environment["DJANGO_SECRET"]
+
+ALLOWED_HOSTS = [Environment["DJANGO_SITENAME"]]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': Environment['DJANGO_DB_NAME'],
+        'USER': Environment['DJANGO_DB_USER'],
+        'PASSWORD': Environment['DJANGO_DB_PASSWORD'],
+        'HOST': Environment['DJANGO_DB_HOST'],
+        'PORT': Environment['DJANGO_DB_PORT'],
+    }
+}
 
 
 
@@ -53,12 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'feedsocial.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 AUTH_USER_MODEL = 'accounts.FeedSocialUser'
 
@@ -91,3 +107,4 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
