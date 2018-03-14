@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class UserContent(models.Model):
-    content = models.TextField(max_length=140)
+    content = models.TextField(max_length=100)
     creator = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete = models.CASCADE,
