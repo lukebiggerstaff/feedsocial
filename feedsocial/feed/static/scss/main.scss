@@ -1,11 +1,24 @@
 @import '_nav.scss';
+@import '_footer.scss';
 @import '_comment.scss';
 @import '_feed.scss';
+@import '_signup.scss';
 
-.feed-wrapper {
-  margin-top: 130px;
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 .feed-button {
   background-color: #19ffb2;
   cursor: pointer;
+}
+.login-form {
+  width: 300px;
+  align-self: center;
+  justify-content: center;
+  border: 1px solid lightgrey;
+  padding: 20px;
 }
