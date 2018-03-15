@@ -18,7 +18,7 @@ DEBUG = Environment["DJANGO_DEBUG"]
 
 SECRET_KEY = Environment["DJANGO_SECRET"]
 
-ALLOWED_HOSTS = [Environment["DJANGO_SITENAME"]]
+ALLOWED_HOSTS = ["*" if Environment["DJANGO_DEBUG"] else Environment["DJANGO_SITENAME"]]
 
 DATABASES = {
     'default': {
