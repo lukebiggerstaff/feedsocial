@@ -114,17 +114,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 275px;
+  margin-top: 50px;
   margin-bottom: 30px; }
-  @media (min-width: 300px) {
-    .feed-grid {
-      margin-top: 225px; } }
-  @media (min-width: 550px) {
-    .feed-grid {
-      margin-top: 160px; } }
-  @media (min-width: 855px) {
-    .feed-grid {
-      margin-top: 130px; } }
   .feed-grid--item {
     display: flex;
     flex-flow: column;

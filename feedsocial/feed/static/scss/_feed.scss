@@ -5,16 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  @media (min-width: 300px){
-    margin-top: 225px;
-  }
-  @media (min-width: 550px){
-    margin-top: 160px
-  }
-  @media (min-width: 855px){
-    margin-top: 130px;
-  }
-  margin-top: 275px;
+  margin-top: 50px;
   margin-bottom: 30px;
   &--item {
     display: flex;
