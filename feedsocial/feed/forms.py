@@ -10,6 +10,7 @@ class UserContentForm(ModelForm):
             'content' : forms.Textarea(attrs={
                 'class' : 'form-control text-muted',
                 'placeholder' : 'Add your message here',
+                'autocomplete' : 'off',
             })
         }
 
@@ -22,5 +23,6 @@ class CommentForm(ModelForm):
             'message' : forms.TextInput(attrs={
                 'class' : 'form-control text-muted',
                 'placeholder' : 'what do you want to say?',
+                'autocomplete' : 'off',
             }),
         }
