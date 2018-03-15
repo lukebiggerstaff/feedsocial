@@ -19,7 +19,7 @@ class UserContent(models.Model):
         ordering = ['-last_updated', ]
 
 class ContentComment(models.Model):
-    message = models.TextField(max_length=140)
+    message = models.TextField(max_length=100)
     content_parent = models.ForeignKey(
         'UserContent',
         on_delete = models.CASCADE,
